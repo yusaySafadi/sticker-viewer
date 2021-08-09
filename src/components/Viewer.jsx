@@ -36,18 +36,7 @@ export const Viewer =() =>{
             <input type="text" name="" id="" value={inputValue} onChange={handleChange}  />
         </div>
 
-        <div>
-            <h2>Catalog</h2>
-            {data.map((sticker, index) =>{
-                return <ul>
-                <div>
-                <img src={sticker.src} alt="aweawea" />
-                <li key={index}>{sticker.name}</li>
-                </div>
-                </ul>
-            })}
-
-        </div>
+        
         </>
     )
 }
