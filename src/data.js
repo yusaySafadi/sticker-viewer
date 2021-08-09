@@ -1,6 +1,7 @@
 
 const data = [{
 
-    name:""
+    name:"",
+    src:""
 
 }]
