@@ -2,8 +2,19 @@ import React,{useState, useEffect} from 'react'
 import data from "../data"
 export const Viewer =() =>{
     const[inputValue, setInputValue] = useState("")
-    const [currentSticker, setCurrentSticker] = useState()
+    const [currentSticker, setCurrentSticker] = useState("")
     
+    //Load first Sticker at start once
+    useEffect(()=>{
+        if(data[0]!== undefined){
+            setInputValue(data[0].name)
+            setCurrentSticker(data[0].src)
+        } else{
+            setCurrentSticker("/images/image-not-found.jfif")
+        }
+        
+    },[])
+
     const handleChange = (e) =>{ 
         let searchInput = e.target.value
         let result = data.find(({name})=> name.toLowerCase() === searchInput.toLowerCase())
@@ -19,7 +30,7 @@ export const Viewer =() =>{
         <div>
        
         
-        <img src={currentSticker} alt="aweawea" />
+        <img src={currentSticker} alt="Sticker Image" />
         
             
             <input type="text" name="" id="" value={inputValue} onChange={handleChange}  />
