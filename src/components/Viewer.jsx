@@ -3,9 +3,9 @@ import data from "../data"
 import styled from 'styled-components'
 
 
-export const Viewer =() =>{
+export const Viewer =({currentSticker,setCurrentSticker}) =>{
     const[inputValue, setInputValue] = useState("")
-    const [currentSticker, setCurrentSticker] = useState("")
+    
     
     //Load first Sticker at start once
     useEffect(()=>{

@@ -1,5 +1,5 @@
 
-import './App.css';
+import {useState} from "react";
 import { Catalog } from './Catalog';
 import {Viewer} from "./Viewer";
 import styled, {createGlobalStyle} from 'styled-components';
@@ -9,6 +9,7 @@ html, body{
   display: block;
   box-sizing: border-box;
   width:100%;
+  
   margin:0;
   padding:0;
   background-color:#fcfcfc;
@@ -20,19 +21,25 @@ html, body{
 const Title = styled.h1`
 margin-top: 2rem;
 font-size: 5rem;
-font-weight: 400;
+font-weight: 900;
 font-family: "Lato";
+color: #1c1c1c;
 `
 const LayoutContainer = styled.div`
 `
+
+
 function App() {
+
+  const [currentSticker, setCurrentSticker] = useState("")
+
   return (
     <>
     <Global />
       <LayoutContainer>
         <Title>Sticker Viewer</Title>
-        <Viewer />
-        <Catalog />
+        <Viewer currentSticker={currentSticker} setCurrentSticker={setCurrentSticker} />
+        <Catalog setCurrentSticker={setCurrentSticker}/>
       </LayoutContainer>
 
     </>
